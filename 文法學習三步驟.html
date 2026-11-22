@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fc">
+<meta name="description" content="填寫主題與語言結構，快速複製英文文法學習與練習提示詞。">
+<title>文法學習三步驟｜AI 提示詞小幫手</title>
+<style>
+:root{color-scheme:light;--ink:#17233a;--muted:#64748b;--blue:#345dd7;--blue-dark:#2548aa;--line:#dce3ee;--paper:#fff;--bg:#f6f8fc;--soft:#edf2ff;--green:#116d54}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.65}button,textarea,input{font:inherit}button{cursor:pointer}main{width:min(880px,100%);margin:auto;padding:24px 16px 76px}.head{margin-bottom:22px}.eyebrow{font-weight:800;color:var(--blue);letter-spacing:.12em;font-size:.78rem}h1{font-size:clamp(1.65rem,5vw,2.35rem);line-height:1.25;margin:6px 0 10px;letter-spacing:-.03em}.subtitle{margin:0;color:var(--muted)}.panel,.step{background:var(--paper);border:1px solid var(--line);border-radius:19px;box-shadow:0 3px 14px #162e5c09}.panel{padding:22px;margin-bottom:18px}.panel-title{font-size:1.12rem;margin:0 0 14px}.fields{display:grid;gap:18px}.field{display:block;font-size:.96rem;font-weight:750}.hint{display:block;color:var(--muted);font-weight:400;font-size:.83rem;margin-top:2px}input,textarea.editable{width:100%;margin-top:8px;padding:13px 14px;outline:none;background:#fff;color:var(--ink);border:1.5px solid #bac6da;border-radius:11px;transition:border-color .16s,box-shadow .16s}input:focus,textarea.editable:focus{border-color:var(--blue);box-shadow:0 0 0 3px #345dd71b}textarea.editable{resize:vertical;min-height:100px}.examples{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.chip{font-size:.82rem;border:1px solid var(--line);border-radius:999px;background:#f7f9fd;color:#354968;padding:6px 12px}.chip:hover{background:var(--soft)}.step{margin-top:16px;padding:20px}.stephead{display:flex;gap:13px;align-items:flex-start}.num{width:35px;height:35px;flex:0 0 35px;display:grid;place-items:center;border-radius:11px;background:var(--soft);color:var(--blue);font-weight:850}.steptitle{margin:0;font-size:1.14rem}.stepdesc{margin:4px 0 0;font-size:.89rem;color:var(--muted)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}button.primary{background:var(--blue);border:1px solid var(--blue);color:#fff;font-weight:750}button.primary:hover{background:var(--blue-dark)}button.secondary{background:white;border:1px solid var(--line);color:var(--ink);font-weight:650}button.action{border-radius:11px;padding:11px 16px;min-height:44px}button:focus-visible{outline:3px solid #91a6ff;outline-offset:2px}button:disabled{opacity:.48;cursor:not-allowed}.preview{margin-top:15px;background:#f9fbff;border:1px solid var(--line);border-radius:12px;padding:14px;white-space:pre-wrap;font-size:.83rem;line-height:1.7;max-height:340px;overflow-y:auto;overflow-wrap:anywhere}.preview[hidden]{display:none}.note{padding:14px 16px;background:#f4f7ff;border-left:3px solid #819bf0;border-radius:8px;margin-top:14px;color:#465879;font-size:.9rem}.status{font-size:.85rem;font-weight:700;min-height:1.4em;margin-top:8px;color:var(--green)}footer{font-size:.79rem;color:var(--muted);text-align:center;margin-top:25px}.qr-area{margin-top:18px;border-top:1px solid var(--line);padding-top:18px}.qr-area p{font-size:.86rem;color:var(--muted);margin:5px 0 12px}.qr-layout{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.qr-layout img{width:148px;height:148px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}.qr-layout img[hidden]{display:none}.small{font-size:.82rem;color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(min-width:640px){main{padding:38px 22px 70px}.panel{padding:26px}.step{padding:24px}}@media print{body{background:#fff}main{width:100%;padding:0}.panel,.step{box-shadow:none}button,.actions,.examples,.preview,footer,.edit-instruction{display:none!important}.qr-area{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<header class="head">
+ <div class="eyebrow">ENGLISH GRAMMAR · AI LEARNING</div>
+ <h1>文法學習三步驟</h1>
+ <p class="subtitle">填入這次的學習內容，產生專屬提示詞，複製後貼到你使用的 AI 對話工具。</p>
+</header>
+<section class="panel" aria-labelledby="settings-title">
+ <h2 class="panel-title" id="settings-title">先填寫今天的文法內容</h2>
+ <div class="fields">
+  <label class="field" for="topic">主題 <span class="hint">例如：數字、食物、日常作息</span><input id="topic" type="text" placeholder="請輸入主題" autocomplete="off" maxlength="180"></label>
+  <label class="field" for="structure">語言結構 <span class="hint">輸入這次要練習的句型與文法規則，可以用逗號分隔。</span><textarea id="structure" class="editable" placeholder="例如：以 have 為主要動詞的直述句、yes/no 問句、簡答句、助動詞 do/don't、不定冠詞 an" maxlength="1600"></textarea></label>
+ </div>
+ <div class="examples"><button class="chip" data-example="numbers" type="button">套用示範：數字＋have</button><button class="chip" data-example="routine" type="button">套用示範：日常作息</button><button class="chip" data-example="food" type="button">套用示範：食物</button></div>
+ <p class="small">內容會保留在這台裝置的瀏覽器中。不要輸入姓名或其他個人資料。</p>
+</section>
+<section class="step" aria-labelledby="step1title">
+ <div class="stephead"><div class="num">1</div><div><h2 class="steptitle" id="step1title">跟 AI 學習文法</h2><p class="stepdesc">一次學一個觀念，練習後再繼續。</p></div></div>
+ <div class="actions"><button class="action primary" id="copy1" type="button">複製第一步提示詞</button><button class="action secondary" id="show1" type="button" aria-expanded="false">預覽內容</button></div>
+ <div class="status" id="status1" role="status" aria-live="polite"></div><div class="preview" id="preview1" hidden></div>
+</section>
+<section class="step" aria-labelledby="step2title">
+ <div class="stephead"><div class="num">2</div><div><h2 class="steptitle" id="step2title">自己造句</h2><p class="stepdesc">用今天學到的文法自己造句，寫在學習單或筆記本上。這一步不需要提示詞。</p></div></div>
+ <div class="note">可以先參考學過的句型，再換成自己的例子。記得檢查句子的主詞、動詞與單字順序。</div>
+</section>
+<section class="step" aria-labelledby="step3title">
+ <div class="stephead"><div class="num">3</div><div><h2 class="steptitle" id="step3title">挑戰 10 題文法練習</h2><p class="stepdesc">分兩回合完成，每回合 5 題，AI 會在作答後批改。</p></div></div>
+ <div class="actions"><button class="action primary" id="copy3" type="button">複製第三步提示詞</button><button class="action secondary" id="show3" type="button" aria-expanded="false">預覽內容</button></div>
+ <div class="status" id="status3" role="status" aria-live="polite"></div><div class="preview" id="preview3" hidden></div>
+ <div class="note">如果要讓 AI 延續第一步的學習紀錄，請把第三步提示詞貼在<strong>同一個對話</strong>中；開新對話也能使用，因為提示詞包含你填寫的主題與語言結構。</div>
+</section>
+<section class="panel qr-area" aria-labelledby="share-title">
+ <h2 class="panel-title" id="share-title">教師分享用：網站 QR Code</h2>
+ <p>將本頁上傳到公開網址後，使用該網址建立 QR Code。學生掃描後即可開啟網站。QR Code 只包含網址，不會分享學生在欄位中填寫的內容。</p>
+ <div class="qr-layout"><img id="qr" alt="網站的 QR Code" hidden><div><button class="action secondary" type="button" id="qrbtn">產生這個網站的 QR Code</button><p id="qrmsg" class="small" aria-live="polite">需先把網站放上網路；在本機開啟 HTML 時無法產生公開連結。</p></div></div>
+</section>
+<footer>文法學習三步驟 · 可在手機、平板與電腦使用</footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const examples={numbers:['數字',"以 have 為主要動詞的直述句、yes/no 問句、簡答句、助動詞 do/don't、不定冠詞 an"],routine:['日常作息','一般現在式直述句、第三人稱單數動詞變化、頻率副詞、do/does 問句與簡答'],food:['食物','可數與不可數名詞、some/any、there is/there are、How much/How many']};
+const topic=$('topic'),structure=$('structure');
+try{topic.value=localStorage.getItem('grammar-topic')||'';structure.value=localStorage.getItem('grammar-structure')||'';}catch(e){}
+function values(){return{t:topic.value.trim(),s:structure.value.trim()}}
+function valid(){const {t,s}=values();if(!t||!s){(!t?topic:structure).focus();return false}return true}
+function p1(){const {t,s}=values();return `你現在是一位親切、有耐心的英文文法老師，正在指導台灣國中小程度（CEFR A1–A2）的學生。
+
+請根據我提供的【主題】與【語言結構】，帶我進行「一問一答」的互動文法學習，幫我為接下來的課堂測驗做準備：
+
+【主題】：${t}
+
+【語言結構】：${s}
+
+請嚴格遵守以下教學規則，並用繁體中文解說：
+
+1. 一次只教一個觀念，不要一次講完：
+   請將【語言結構】整理成 3～4 個循序漸進的小步驟；若文法項目較多，可合理合併相關概念，但不能遺漏指定的語言結構。每次只教一個重點句型。等我練習並答對後，再進入下一個步驟。
+
+2. 教學四部曲（前段學習階段請依照這個順序，此階段「不要」出句子重組題）：
+   - 【超白話講解】：用 2～3 句最簡單的話解釋規則，並用「公式」呈現（例如：主詞 + have + 數字 + 名詞；實際公式依本次語言結構調整）。
+   - 【主題例句】：給 2 句結合本次【主題】的簡短英文例句，並附上中文翻譯。
+   - 【小試身手】：出 1 題簡單的翻譯題或填空題讓我練習（先不要給答案，等我回答）。
+   - 【溫柔回饋】：我回答後，先指出我答對的地方；如果有錯，用簡單好懂的方式提示原因，讓我再試一次或給我看正確答案。不要把錯誤答案稱作正確。
+
+3. 嚴格控制難度：
+   所有例句、語塊和題目只能使用簡單、常見的基礎單字（A1–A2 程度），避免生難字或複雜長句。例句須符合本次指定的【主題】與【語言結構】。
+
+4. 最後的「5 題多元綜合小測驗」與「今日重點整理」：
+   - 當所有【語言結構】都練習完畢後，請出 5 題綜合小測驗（先不要給答案，等我全部回答後再一起批改與講解）。這 5 題必須包含以下 4 種題型：
+     * 第 1～2 題（語塊句子重組）：每題給 1 句中文提示，並把英文句子拆成 4～6 個打亂順序的語塊，語塊之間用 / 隔開（例如：have / I / ten apples / .；實際內容依本次主題調整）。答案不可直接照正確順序排列。
+     * 第 3 題（文法選擇題）：出 1 題 A / B / C 三選一的單選題，考今天學到的關鍵文法細節。
+     * 第 4 題（火眼金睛改錯題）：給 1 句故意寫錯一個小地方的英文句子，請我找出錯誤並寫出正確句子。
+     * 第 5 題（情境問答／造句題）：根據今天的主題出 1 句英文問句，請我用今天學到的簡答句或完整句子回答。
+   - 等我完成 5 題綜合小測驗並核對完答案後，請列出【今日學習重點總整理】：今天學到的每一個文法重點都搭配 1 個符合主題的簡單英文例句與中文翻譯，方便抄在筆記本上複習。
+
+現在，請先從第一個語言結構開始教學，並出第一題讓我練習！`}
+function p3(){const {t,s}=values();return `太棒了！我已經完成剛才的文法學習了。現在請你繼續扮演親切、有耐心的英文文法老師，根據我們剛剛學的【主題】與【語言結構】（如果這是新對話，請依據下方內容），為台灣國中小程度（CEFR A1–A2）的我出 10 題多元文法練習題，讓我做進階練習：
+
+【主題】：${t}
+
+【語言結構】：${s}
+
+請嚴格遵守以下出題與互動規則，並用繁體中文解說：
+
+1. 題型多元配置（共 10 題，每種題型各 2 題，由淺入深排列）：
+   - 第 1～2 題（文法選擇題）：A / B / C 三選一單選題，測驗本次所學文法與句型搭配。
+   - 第 3～4 題（看中文填空題）：給完整中文句子與挖空 1～2 格的英文句子，讓我填入正確的單字或助動詞。
+   - 第 5～6 題（語塊句子重組）：給 1 句中文提示，並把對應英文句子拆成 4～6 個打亂順序的語塊，語塊之間用 / 隔開；不要把語塊依正確順序呈現。
+   - 第 7～8 題（火眼金睛改錯題）：給 1 句故意寫錯一個文法細節的英文句子，請我找出錯誤並寫出正確句子。
+   - 第 9～10 題（依提示作答／句子改寫）：給 1 句直述句，請我依照括號提示改寫（例如：否定句、yes/no 問句，或肯定／否定簡答；實際題型依本次學到的結構調整）。
+
+2. 嚴格控制單字與難度：
+   - 所有題目必須緊扣【主題】與【語言結構】，並只使用簡單、常見的基礎單字（CEFR A1–A2 程度），避免生難字或複雜長句。
+   - 題目要有明確、可判定的正確答案；避免多個選項都正確或沒有足夠線索。
+
+3. 先出題、先不給答案（分兩回合進行，避免一次題目太長）：
+   - 請先出第 1～5 題讓我作答（千萬不要先給答案）。
+   - 等我回覆第 1～5 題的答案後，請逐題批改、指出答對的地方、用簡單好懂的方式講解錯題原因，接著再出第 6～10 題讓我繼續挑戰。
+   - 如果我漏答某一題，請提醒我補答，不要自行假設答案。
+
+4. 全部完成後的總結：
+   - 當第 6～10 題也批改講解完畢後，請統計這次 10 題的答對題數（以我第一次正式作答為準），給予鼓勵，並用 1～2 句話提醒我做這次練習題時最需要注意的一個文法細節。
+
+現在，請先出第 1～5 題讓我練習！`}
+function refresh(){for(const [n,func] of [[1,p1],[3,p3]]){if(!$('preview'+n).hidden)$('preview'+n).textContent=func();$('status'+n).textContent=''}try{localStorage.setItem('grammar-topic',topic.value);localStorage.setItem('grammar-structure',structure.value)}catch(e){}}
+topic.addEventListener('input',refresh);structure.addEventListener('input',refresh);
+for(const el of document.querySelectorAll('[data-example]'))el.addEventListener('click',()=>{const [t,s]=examples[el.dataset.example];topic.value=t;structure.value=s;refresh();});
+async function copyText(text){if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);return true}catch(e){}}const field=document.createElement('textarea');field.value=text;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}field.remove();return ok}
+for(const [n,func] of [[1,p1],[3,p3]]){ $('copy'+n).addEventListener('click',async()=>{if(!valid()){$('status'+n).textContent='請先填寫主題和語言結構。';return}const ok=await copyText(func());$('status'+n).textContent=ok?'已複製！請貼到 AI 對話中。':'無法自動複製，請點「預覽內容」後手動選取複製。'});$('show'+n).addEventListener('click',()=>{const panel=$('preview'+n),btn=$('show'+n);panel.hidden=!panel.hidden;btn.setAttribute('aria-expanded',String(!panel.hidden));btn.textContent=panel.hidden?'預覽內容':'收起預覽';if(!panel.hidden)panel.textContent=func()})}
+$('qrbtn').addEventListener('click',()=>{if(location.protocol==='file:'){$('qrmsg').textContent='目前是本機檔案。請先上傳至 GitHub Pages 或其他網站空間，然後從公開網址開啟本頁。';return}const u=location.origin+location.pathname;const img=$('qr');img.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data='+encodeURIComponent(u);img.hidden=false;img.onerror=()=>{$('qrmsg').textContent='QR Code 服務暫時無法使用。可將網址貼到其他 QR Code 產生器。'};$('qrmsg').textContent='QR Code 對應：'+u+'（需要連網才能顯示圖片）'});
+</script>
+</body>
+</html>
